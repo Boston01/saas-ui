@@ -11,12 +11,14 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.1.1",
+    "clsx": "^2.1.0",
     "cryptr": "^6.3.0",
     "jwt-decode": "^3.1.2",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
