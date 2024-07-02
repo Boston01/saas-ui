@@ -21,9 +21,9 @@ const services1 = [
     }
     return (
       <ul role="list" className="space-y-3 ">
-        {services.map((serivce: any) => (
-          <li key={serivce.id} className="overflow-hidden  bg-slate-300 rounded-md px-6 py-4 shadow">
-            {/* Your content */}
+        {services.map((service: any) => (
+          <li key={service.ID} className="overflow-hidden  bg-slate-300 rounded-md px-6 py-4 shadow">
+            <ul>{service.project_name}: {service.env_name}</ul>
           </li>
         ))}
       </ul>

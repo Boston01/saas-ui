@@ -123,6 +123,7 @@ export default function Form() {
             >
               <option>gcp</option>
               <option>aws</option>
+              <option>internal-envs</option>
             </select>
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">

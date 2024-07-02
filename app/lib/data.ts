@@ -23,7 +23,7 @@ export async function getUsers() {
   }
 
   export async function getServices() {
-    const url = `${process.env.BACKEND_URL}/api/v1/resources/clusters`; 
+    const url = `${process.env.BACKEND_URL}/api/v1/resources/clusters?project=internal-envs`;
     let accessToken = await getAccessToken();
   
     const response = await fetch(url, {
@@ -36,7 +36,7 @@ export async function getUsers() {
     if (response.ok) {
       const data = await response.json();
       console.log(data);
-      return data;
+      return data.data;
     }
   
     console.log(response.status);
