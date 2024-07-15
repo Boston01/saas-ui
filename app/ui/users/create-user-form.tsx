@@ -1,6 +1,6 @@
 "use client"
 import { useFormState } from "react-dom";
-import { State, createUser } from "../../lib/actions";
+import { createUser } from "../../lib/actions";
 
 export default function Form() {
   const initialState = { message: null, errors: {} };
@@ -11,6 +11,7 @@ export default function Form() {
       action={dispatch}
       className="grid grid-cols-3 gap-4 place-items-stretch h-56"
     >
+      <div></div>
       <div></div>
       <div className="grid grid-cols-1 gap-x-6 gap-y-8">
         <div className="col-span-full">
@@ -27,7 +28,7 @@ export default function Form() {
               id="firstName"
               defaultValue=""
               autoComplete="given-name"
-              className="block w-full rounded-md border-0 bg-gray-100 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 bg-gray-200 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
             />
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
@@ -53,7 +54,7 @@ export default function Form() {
               name="lastName"
               id="lastName"
               autoComplete="given-name"
-              className="block w-full rounded-md border-0 bg-gray-100 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 bg-gray-200 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
             />
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
@@ -79,7 +80,7 @@ export default function Form() {
               name="email"
               type="email"
               autoComplete="email"
-              className="block w-full rounded-md border-0 bg-gray-100 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 bg-gray-200 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
             />
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
@@ -100,10 +101,11 @@ export default function Form() {
             <select
               id="role"
               name="role"
-              className="block w-full rounded-md border-0 bg-gray-100 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black"
+              className="block w-full rounded-md border-0 bg-gray-200 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black"
             >
-              <option>Admin</option>
-              <option>Viewer</option>
+              <option>admin</option>
+              <option>super-admin</option>
+              <option>viewer</option>
             </select>
           </div>
         </div>
@@ -119,11 +121,11 @@ export default function Form() {
             <select
               id="projects"
               name="projects"
-              className="block w-full rounded-md border-0 bg-gray-100 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black"
+              className="block w-full rounded-md border-0 bg-gray-200 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black"
             >
-              <option>gcp</option>
-              <option>aws</option>
               <option>internal-envs</option>
+              <option>taula</option>
+              <option>training</option>
             </select>
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">

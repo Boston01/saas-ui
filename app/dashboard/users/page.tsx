@@ -30,7 +30,7 @@ export default async function UsersPage() {
             <Link href="/dashboard/users/create">
               <button
                 type="button"
-                className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="block rounded-md bg-green-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Add user
               </button>
@@ -40,8 +40,8 @@ export default async function UsersPage() {
         <div className="mt-8 flow-root">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-300">
+              <div className="overflow-hidden shadow-2xl ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+                <table className="h-full divide-y divide-gray-300">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
@@ -76,24 +76,31 @@ export default async function UsersPage() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 bg-white">
+                  <tbody className="divide-y divide-gray-200 bg-white ">
                     {users.map((user: any) => (
                       <tr key={user.id}>
-                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                        <td className="shadow-2xl whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                           {user.username}
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        <td className="shadow-2xl whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                           {user.email}
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          Admin
+                        <td className="shadow-2xl whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                            <p>admin</p>
+                          </span>
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          {user.projects}
+                        <td className="shadow-2xl whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          {user.projects.map((project: any) => (
+                            // <p className="text-sm font-semibold text-gray-900">{project}</p>
+                            <span className="shadow-2xl inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                              {project}
+                            </span>
+                          ))}
                         </td>
                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                           <div className="flex justify-end gap-3">
-                            <UpdateUser id="1" />
+                            <UpdateUser id={user.id} />
                             <DeleteUser id={user.id} />
                           </div>
                         </td>

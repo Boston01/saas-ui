@@ -1,21 +1,25 @@
-import Form from "@/app/ui/services/create-service-form";
 import Breadcrumbs from "@/app/ui/users/breadcrumbs";
 
 
-export default function Page() {
+export default function App() {
   return (
     <main>
       <Breadcrumbs
         breadcrumbs={[
           { label: 'Services', href: '/dashboard/services' },
           {
-            label: 'Add service',
-            href: '/dashboard/services/create',
+            label: 'Specs Envs',
+            href: '/dashboard/services/details',
+            active: false,
+          },
+          {
+            label: 'Opensee Application',
+            href: '/dashboard/services/details',
             active: true,
           },
         ]}
       />
-      <Form />
+      
     </main>
   )
 }
