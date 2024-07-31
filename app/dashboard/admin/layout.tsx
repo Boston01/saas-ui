@@ -2,6 +2,7 @@ function Page({children}: {children: React.ReactNode}) {
   const navigation = [
     { name: "Details", href: "/dashboard/admin/details", current: false },
     { name: "Billing", href: "/dashboard/admin/billing", current: false },
+    { name: "Quota", href: "/dashboard/admin/quotas", current: false },
     { name: "Usage", href: "/dashboard/admin/usage", current: false },
   ];
 
