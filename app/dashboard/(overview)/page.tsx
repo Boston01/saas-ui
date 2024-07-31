@@ -1,14 +1,7 @@
 function Page() {
-
-    return (
-        <>
-        <div>
-            {/* Metrics of env, number of envs, lists of users */}
-        </div>
-        <p>Text ok for this page</p>
-        </>
-    
-    )
+  return (
+    <div className="">toto</div>
+  );
 }
 
 export default Page;

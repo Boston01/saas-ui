@@ -1,18 +1,13 @@
 "use client"
 import { useFormState } from "react-dom";
-import { createUser } from "../../lib/actions";
+import { createUser } from "../../lib/users-actions";
 
 export default function Form() {
   const initialState = { message: null, errors: {} };
   const [state, dispatch] = useFormState(createUser, initialState);
   
   return (
-    <form
-      action={dispatch}
-      className="grid grid-cols-3 gap-4 place-items-stretch h-56"
-    >
-      <div></div>
-      <div></div>
+    <form action={dispatch} className="px-56">
       <div className="grid grid-cols-1 gap-x-6 gap-y-8">
         <div className="col-span-full">
           <label

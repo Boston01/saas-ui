@@ -1,9 +1,11 @@
 import Breadcrumbs from "@/app/ui/users/breadcrumbs";
+import { useParams, useSearchParams } from "next/navigation";
 
-
-export default function Details() {
+export default function Detail({specs}: {specs: any}) {
+  // const parameters = useSearchParams();
+  // console.log("The parameters are =========>", specs)
   return (
-    <main>
+    <main className="mx-4 my-4">
       <Breadcrumbs
         breadcrumbs={[
           { label: 'Services', href: '/dashboard/services' },
@@ -19,7 +21,8 @@ export default function Details() {
           },
         ]}
       />
-      
+      {/* <Specs/> */}
+      {/* <div>{specs}</div> */}
     </main>
   )
 }

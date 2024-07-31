@@ -1,9 +1,8 @@
+'use client'
 import Breadcrumbs from "@/app/ui/users/breadcrumbs";
-
-
 export default function App() {
   return (
-    <main>
+    <main className="mx-4 my-4">
       <Breadcrumbs
         breadcrumbs={[
           { label: 'Services', href: '/dashboard/services' },
@@ -14,7 +13,7 @@ export default function App() {
           },
           {
             label: 'Opensee Application',
-            href: '/dashboard/services/details',
+            href: '/dashboard/services/app',
             active: true,
           },
         ]}

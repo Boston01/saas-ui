@@ -1,6 +1,6 @@
 "use client";
 import { useFormState } from "react-dom";
-import { createService } from "../../lib/actions";
+import { createService } from "../../lib/services-actions";
 
 
 export default function Form() {
@@ -9,12 +9,11 @@ export default function Form() {
   const [state, dispatch] = useFormState(createService, initialState);
   
   return (
+
     <form
-      action={dispatch}
-      className="grid grid-cols-3 gap-4 place-items-stretch h-56"
+      action={dispatch} className="px-96"
+      // className="grid grid-cols-3 gap-4 place-items-stretch h-56"
     >
-      <div></div>
-      <div></div>
       <div className="grid grid-cols-1 gap-x-6 gap-y-4">
         
         <div className="col-span-full">
@@ -84,8 +83,8 @@ export default function Form() {
             </select>
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
-            {state?.errors.projects &&
-              state.errors.projects.map((error: string) => (
+            {state?.errors?.projects &&
+              state.errors?.projects.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -111,7 +110,7 @@ export default function Form() {
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
             {state?.errors?.envName &&
-              state?.errors.envName.map((error: string) => (
+              state?.errors?.envName.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -137,7 +136,7 @@ export default function Form() {
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
             {state?.errors?.overrideDns &&
-              state?.errors.overrideDns.map((error: string) => (
+              state?.errors?.overrideDns.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -155,14 +154,14 @@ export default function Form() {
               name="reconcile"
               className="block w-full rounded-md border-0 bg-gray-200 py-1.5 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black"
             >
-              <option>true</option>
               <option>false</option>
+              <option>true</option>
               
             </select>
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
             {state?.errors?.reconcile &&
-              state?.errors.reconcile.map((error: string) => (
+              state?.errors?.reconcile.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -189,7 +188,7 @@ export default function Form() {
 
           <div id="customer-error" aria-live="polite" aria-atomic="true">
             {state?.errors?.clusterSize &&
-              state?.errors.clusterSize.map((error: string) => (
+              state?.errors?.clusterSize.map((error: string) => (
                 <p className="mt-2 text-sm text-red-500" key={error}>
                   {error}
                 </p>
@@ -205,7 +204,6 @@ export default function Form() {
           </button>
         </div>
       </div>
-      <div></div>
     </form>
   );
 }

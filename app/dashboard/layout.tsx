@@ -1,18 +1,21 @@
 "use client";
-import { Fragment, useState, useEffect } from "react";
-import { Dialog, Transition } from "@headlessui/react";
 import openseeLogo from "../../public/opensee-logo.png";
 import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 import {
-  Bars3Icon,
   Cog6ToothIcon,
   Squares2X2Icon,
   HomeIcon,
   UsersIcon,
-
-  PowerIcon,
+  BellIcon,
+  UserCircleIcon,
 } from "@heroicons/react/24/outline";
+import {
+
+  Menu
+} from "@headlessui/react";
+
+import Link from "next/link";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: false },
@@ -44,6 +47,12 @@ async function keyckloakSessionLogOut() {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+
+  // Handle logout
+  const handleLogout = () => {
+    keyckloakSessionLogOut().then(() => signOut({ callbackUrl: "/" }));
+    
+  };
   return (
     <div className="flex flex-col">
       <div className=" flex divide-x divide-gray-200 h-14 flex-row bg-blue-400">
@@ -54,17 +63,50 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             alt="Opensee"
           />
         </div>
-        <div className="ml-auto">
-          <button
-            onClick={() => {
-              keyckloakSessionLogOut().then(() =>
-                signOut({ callbackUrl: "/" })
-              );
-            }}
-            className="h-4 w-4 rounded-full pl-4 mt-3 mr-10"
-          >
-            <PowerIcon className="w-6" />
-          </button>
+        
+        <div className="ml-auto lg:flex lg:items-center">
+          {/* Profile dropdown */}
+          <Menu as="div" className="relative ml-3">
+            <div>
+              <Menu.Button className="relative mt-3 mr-2 flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <span className="absolute -inset-1.5" />
+                <span className="sr-only">Open user menu</span>
+                <img
+                  alt=""
+                  src="https://pbs.twimg.com/profile_images/1422928729983098882/HwCU4MsC_400x400.jpg"
+                  className="h-8 w-8 rounded-full"
+                />
+              </Menu.Button>
+            </div>
+            <Menu.Items 
+              className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+            >
+              <Menu.Item>
+                <Link
+                  href={`/dashboard/users/a9bb1734-b695-456c-96e5-6214a9d9f0d6/details`}
+                  className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
+                >
+                  Your Profile
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
+                >
+                  Settings
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <button
+                  onClick={handleLogout}
+                  className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
+                >
+                  Sign out
+                </button>
+              </Menu.Item>
+            </Menu.Items>
+          </Menu>
         </div>
       </div>
 
@@ -107,8 +149,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        <main className="py-4">
-          <div className="px-16">{children}</div>
+        <main className="flex min-h-full flex-1 flex-col">
+          <div>{children}</div>
         </main>
       </div>
     </div>
